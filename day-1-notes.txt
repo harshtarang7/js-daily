@@ -21,3 +21,43 @@ we can use var , let , const.
  b - LET is block scoped variables
  c - CONST is block scoped local variables. Once the value is assigned we cannot change it during the runtime 
 
+TDZ= Temporal dead zone 
+it is the time between the let and const is hoisted and when it is actually initialized. During this time you cannot access the variable
+and if you will you will get the ReferenceError
+
+
+DATA TYPES-
+Data types define the data type that a variable can store. javascript incluedes primitive and non-primitive data types.
+the primitive data types in JS inclues string, number, boolean, undefined, null, and symbol. the non primitive data type includes the object.
+
+primitive data type is a data that is not an object and has no methods or properties .
+    a- string
+    b- number
+    c- bigint
+    d- boolean
+    e- undefined
+    f- symbol
+    g- null
+
+All primitives are immutable, that is, they cannot be altered
+
+OPERATORS 
+operators are symbols that perform operations on values and variables
+ 1- Arithmetic operators
+    a- + , - , / , * , %, **, ++, --
+    it will perform some mathematical operations , to add, multiply, division, subtraction, remainder,
+ 
+ 2- Assignment operators
+    a- =, +=, -=, *=, /=, %= etc
+ 
+ 3- Comparison Operators
+    a- ==, ===, !=, !==, >, <, >=, <=
+ 
+ 4- Logical Operators
+    a- && (AND), || (OR), ! (NOT)
+
+ 5- Ternary Operator
+    a- condition ? valueIfTrue : valueIfFalse
+
+ 6- Type Operators
+    a- typeof, instanceof
