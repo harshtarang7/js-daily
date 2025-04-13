@@ -1,0 +1,23 @@
+1- javascript introduction 
+    
+javascript is used to create dynamic client side pages. It is an object based scripting language which is lightweight and crossplatform.
+javascript translator translate the javascript code to the browser.
+
+javascript is light weight object oriented programming language which is used by several websites for scripting  the webpages.
+it is an interpreted , full fledged programming language that enables dynamic interactivity in websites when applied to the HTML document.
+It has no connnectivity with JAVA. it is case sensitive.
+
+inside HTML document JS code is writtin inside 
+internal = 
+<script document="text/javascript">
+let a = 10;
+</script>
+external = <script source="index.js"> //IMPORTANT = the index.js should be in same folder</script>
+
+2- variables 
+Variables are containers for storing data.
+we can use var , let , const.
+ a - VAR is a function-scoped or globally scoped variables.
+ b - LET is block scoped variables
+ c - CONST is block scoped local variables. Once the value is assigned we cannot change it during the runtime 
+
