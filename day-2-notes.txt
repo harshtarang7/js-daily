@@ -1,0 +1,88 @@
+CONDITIONAL STATEMENTS
+
+//////////////
+
+IF = it is a statement to specify a block of JS code to be executed if a condition is true. the keyword should be in lower case
+if(condition){
+//code to be executed if condition is true
+}
+
+if(hour<18){
+    greeting = "good day";
+}
+it will return good day if the time is less than 18 
+
+/////////////////////////////////////////
+
+ELSE = we will use the else statement with if to specify a block of code to be executed if the condition is false.
+if(condition){
+    // block of code to be executed if the condition is true
+}else{
+    // block of code to be executed if the condition is false
+}
+
+if (hour < 18) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+
+good day 
+
+
+ELSE-IF = we will use this statement to specify a new condition if the first condition is false;
+
+if(condition1){
+    // block of code to be executed if condition1 is true
+}else if (condition2){
+    // block of code to be executed if the condition1 is false and condition2 is true
+}else{
+    // block of code to be executed if the conditon1 is false and condition2 is false
+}
+
+if (time < 10) {
+  greeting = "Good morning";
+} else if (time < 20) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+it will execute code according to time and the conditon
+
+
+loops
+FOR LOOP = It is a control flow statement that allows code to be executed repeatedly based on a condition.
+It contains initialization , condition and increment/decrement in one line
+
+for(initialization; condition; increment / decrement){
+    // you code here 
+}
+
+example= for(let i=1;i<=5;i++){
+    console.log("loop")
+}
+it will return 5 times "loop" string in console
+
+WHILE LOOP = the while loops creates a loop that is executed as long as a specific condition is true.
+we specify the condition before the loop, and usually , some variable is incremented or changed in the while loop body to determine when the loop should stop.
+
+while(condition){
+    //code block is to be executed
+}
+
+let a = 0;
+while(a<=3){
+    console.log("Hello World")
+    a++;
+}
+it will print the code block "hello world" as long as the condition is less than or equals to 3
+it will start from 0 till 3 and runs 4 times (0,1,2,3). after the 4th iteration , a will be 4 and the condition would become false so the loop will exit.
+
+DO-WHILE loop = it is a statement used to create a loop that executes a block of code once, then it will check the condition is true , and then repeats the loop
+as long as the condition remains true.
+it is used when the loop body needs to be executed at least once . The loop ends when the condition is false.
+
+do{
+    //code to execute
+}while(condition)
+
