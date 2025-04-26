@@ -44,3 +44,15 @@ var namedExpressionFunction = function name(){
 }
 
 namedExpressionFunction();
+
+// parameter and arguments
+// paremeter - it is a local variable, label , identifiers in a function scope which cannot be accessible outside of the function.
+// arguments - when we call a function we pass values in that function which is known as an argument
+
+// a and b here are paremeters and 2,3 are arguements 
+function egParameter(a,b){
+    return a*b
+}
+console.log(egParameter(2,3))
+
+
