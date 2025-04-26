@@ -56,3 +56,29 @@ function egParameter(a,b){
 console.log(egParameter(2,3))
 
 
+// first class function 
+// Assign a function to a variable
+// Pass a function as an argument to another function
+// Return a function from another function
+
+const greet = function(name){
+    return `hello ${name}`
+}
+console.log(greet('tarang'))  // hello tarang 
+
+// 
+function functionInArguement(fn,value){
+    return fn(value)
+}
+
+console.log(functionInArguement(greet,'harsh')) //hello harsh
+
+// 
+function multiplier(x){
+    return function(y){
+        return x * y
+    }
+}
+
+const double = multiplier(2) // x = 2
+console.log(double(6)) // it returns inside function , y = 6
