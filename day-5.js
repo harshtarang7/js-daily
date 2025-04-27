@@ -71,3 +71,60 @@ function oncePassword(value){
 const onePass = oncePassword('tarang')
 console.log(onePass())
 console.log(onePass())
+
+
+// adder with base
+
+function adder(value){
+    return function isAdded(value2){
+        return value+value2
+    }
+}
+
+const add = adder(10)
+console.log(add(10))
+console.log(add(20))
+
+
+
+// private counter
+
+function privateCounter(a){
+    function increment(){
+        a= a+1
+        return a
+    }
+    function decrement(){
+        a = a-1
+        return a
+    }
+    function getValue(){
+        return a;
+    }
+    function reset(){
+        a=0
+        return a
+    }
+    function setValue(value){
+        a=value
+        return value
+    }
+
+    return {
+        increment,
+        decrement,
+        getValue,
+        reset,
+        setValue
+    }
+}
+
+
+const counter = privateCounter(10);
+console.log(counter.increment()) //11
+console.log(counter.decrement()) //10
+console.log(counter.decrement())// 9
+console.log(counter.getValue()) //9
+console.log(counter.reset()) // 0
+console.log(counter.setValue(100)) // 100
+console.log(counter.getValue())// 100
