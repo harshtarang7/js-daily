@@ -183,3 +183,54 @@ console.log(even(2))
 console.log(even(23))
 
 
+// Create a function that returns a secret password (but no one can change it).
+
+function pass(secret){
+
+  return function(){
+    return secret;
+  }
+}
+
+const getPass = pass('thala0779');
+
+console.log(getPass())
+
+
+
+// Create a function that returns a function to check if a number is greater than 10
+function checks10(value){
+  return function(){
+    if(value>10){
+      return ' greater than 10'
+    }else{
+      return 'smaller than 10'
+    }
+  }
+}
+
+const isGreaterThan10 = checks10(10)
+console.log(isGreaterThan10())
+
+
+
+// Create a function power(n) that returns another function to calculate n raised to the power of some number.
+function pow(n){
+  return function(){
+    return n*n
+  }
+}
+
+const power = pow(125)
+console.log(power())
+
+
+// Create a function that returns another function that adds a prefix to a string.
+function addPrefix(value){
+  return function(){
+    return value + ' added later'
+  }
+}
+
+const pref = addPrefix('tarang')
+console.log(pref())
