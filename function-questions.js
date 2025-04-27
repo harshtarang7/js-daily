@@ -94,75 +94,92 @@ function bankSystem() {
 
 const myAccount = bankSystem();
 
-myAccount.deposit(10000)
-myAccount.withdraw(2983)
-myAccount.checkbalance()
-
+myAccount.deposit(10000);
+myAccount.withdraw(2983);
+myAccount.checkbalance();
 
 // Build a "once" function:
 
-function once(func){
-    let called = false;
-    return function(){
-        if(!called){
-            called= true;
-            func();
-        }
+function once(func) {
+  let called = false;
+  return function () {
+    if (!called) {
+      called = true;
+      func();
     }
+  };
 }
 
 function greetings() {
-    console.log('Hello World!');
+  console.log("Hello World!");
 }
 
-const greetOnce = once(greetings)
+const greetOnce = once(greetings);
 
-greetOnce()
-greetOnce()
-greetOnce()
+greetOnce();
+greetOnce();
+greetOnce();
 
-
-// register event on fucntion call and then call the event 
+// register event on fucntion call and then call the event
 let eventHandler;
 let eventHandlers = {};
-function onEvent(handler){
-    eventHandler =handler;
+function onEvent(handler) {
+  eventHandler = handler;
 }
 
-function triggerEvent(){
-    if(eventHandler){
-        eventHandler();
-    }else{
-        console.log('no event handler registered')
+function triggerEvent() {
+  if (eventHandler) {
+    eventHandler();
+  } else {
+    console.log("no event handler registered");
+  }
+}
+
+onEvent(function () {
+  console.log("event registered");
+});
+
+triggerEvent();
+
+function onEvents(eventName, handler) {
+  eventHandlers[eventName] = handler;
+}
+function triggerEvents(eventName) {
+  const handler = eventHandlers[eventName];
+  if (handler) {
+    handler();
+  } else {
+    console.log(`No handler registered for "${eventName}" event.`);
+  }
+}
+
+onEvents("click", function () {
+  console.log("clicked");
+});
+
+onEvents("add", function () {
+  console.log("added");
+});
+
+triggerEvents("add");
+triggerEvents("click");
+
+// Create a function that checks if a number is even.
+
+function checkEven() {
+  function checking(value) {
+    if (value%2=== 0) {
+      return`${value} is even`;
+    } else {
+      return `${value} is odd`;
     }
+  }
+  return checking;
 }
 
-onEvent(function(){
-    console.log('event registered')
-})
+const even = checkEven()
 
-triggerEvent()
+console.log(even(2))
+console.log(even(23))
 
 
-function onEvents(eventName,handler){
-    eventHandlers[eventName] = handler
-}
-function triggerEvents (eventName){
-    const handler = eventHandlers[eventName];
-    if(handler){
-        handler();
-    }else{
-        console.log(`No handler registered for "${eventName}" event.`);
-    }
-}
-
-onEvents('click',function(){
-    console.log('clicked')
-})
-
-onEvents('add',function(){
-    console.log('added')
-})
-
-triggerEvents('add')
-triggerEvents('click')
