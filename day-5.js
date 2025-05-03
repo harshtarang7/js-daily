@@ -89,8 +89,11 @@ console.log(add(20))
 
 // private counter
 
-function privateCounter(a){
+function privateCounter(a,maxValue){
     function increment(){
+        if(a>=maxValue && maxValue !== undefined){
+            return 'max limit is reached'
+        }
         a= a+1
         return a
     }
@@ -115,13 +118,18 @@ function privateCounter(a){
         decrement,
         getValue,
         reset,
-        setValue
+        setValue,
     }
 }
 
 
-const counter = privateCounter(10);
+const counter = privateCounter(10,15);
 console.log(counter.increment()) //11
+console.log(counter.increment()) //12
+console.log(counter.increment()) //13
+console.log(counter.increment()) //14
+console.log(counter.increment()) //15
+console.log(counter.increment()) // max limit reached
 console.log(counter.decrement()) //10
 console.log(counter.decrement())// 9
 console.log(counter.getValue()) //9
