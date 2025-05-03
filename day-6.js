@@ -93,3 +93,46 @@ const empty = empArr.map((element)=>{
 
 // console.log(empty)//[ 'hello', 'empty', 'world', 'empty' ]
 
+
+// add +1 in age in the array of objects
+
+const nameArr = [{name:'tarang', age:21}, {name:'arjun', age:25}]
+
+const ageAdd = nameArr.map((element)=>{
+    return element.age + 1
+})
+
+// console.log(ageAdd) //[ 22, 26 ]
+
+// sum of sub array elements from nested array
+
+const nestedArray = [[1,2], [3,4], [5,6]];
+
+const nested = nestedArray.map((element)=>{
+    return element.map((subArr)=>{
+        return subArr+1
+    })
+})
+// console.log(nested)  // [ [ 2, 3 ], [ 4, 5 ], [ 6, 7 ] ]
+
+// length of array string
+
+const StringArray = ['one', 'two', 'three']
+
+const len = StringArray.map((element)=>{
+    return element.length
+});
+
+// console.log(len) //[ 3, 3, 5 ]
+
+
+// double if it is even
+const eve = arr.map((element)=>{
+    if(element % 2 ===0){
+        return element * 2;
+    }else{
+        return 0
+    }
+})
+
+console.log(eve)
