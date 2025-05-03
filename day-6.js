@@ -39,4 +39,57 @@ const pre = animals.map((element)=>{
     return `animal - ${element}`
 })
 
-console.log(pre)
+// console.log(pre)
+
+
+// square
+
+const sq = arr.map((element)=>{
+    return element * 2
+})
+
+// console.log(sq)  //[ 2, 4, 6, 8 ]
+
+
+// return name array from array of objects
+const names = [{name: 'tarang'}, {name: 'arjun'}];
+
+const nameArray = names.map((element)=>{
+    return element.name;
+})
+
+// console.log(nameArray)
+
+
+// even / odd
+
+const evenOrOdd = arr.map((element)=>{
+    if(element%2 ===0){
+        return `even : ${element}`
+    }else{
+         return `odd : ${element}`
+    }
+})
+// console.log(evenOrOdd) //[ 'odd : 1', 'even : 2', 'odd : 3', 'even : 4' ]
+
+const price = [100, 200, 300]
+const discount = price.map((element)=>{
+    return element / 10
+})
+
+// console.log(discount)
+
+// replace '' with 'empty
+
+const empArr = ['hello', '', 'world', '']
+
+const empty = empArr.map((element)=>{
+    if(element === ''){
+        return `empty`
+    }else{
+        return element
+    }
+})
+
+// console.log(empty)//[ 'hello', 'empty', 'world', 'empty' ]
+
