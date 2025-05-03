@@ -17,3 +17,26 @@ const uppercaseElement = stringArr.map((upper)=>{
 
 // console.log(uppercaseElement) //[ 'APPLE', 'BANANA', 'CHERRY' ]
 
+// 3- adding 5 to every element
+
+const add5 = arr.map((element)=>{
+    return element + 5
+})
+
+// console.log(add5) // [ 6, 7, 8, 9 ]
+
+const convertToString = arr.map((element)=>{
+    return element.toString();
+})
+
+// console.log(convertToString) //[ '1', '2', '3', '4' ]
+
+
+// prefix with element
+const animals = ['cat', 'dog', 'bat'];
+
+const pre = animals.map((element)=>{
+    return `animal - ${element}`
+})
+
+console.log(pre)
