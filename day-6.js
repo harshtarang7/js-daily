@@ -135,4 +135,43 @@ const eve = arr.map((element)=>{
     }
 })
 
-console.log(eve)
+// console.log(eve)
+
+// converting US to INR
+
+const pricesUSD = [10, 20, 5];
+
+const toInr = pricesUSD.map((element)=>{
+    return element * 83
+})
+// console.log(toInr)
+
+
+// convert dates into DD-MM-YYYY
+const dates = ['2025-05-03', '2024-12-25'];
+
+const dateConversion = dates.map((element)=>{
+
+    const date = new Date(element);
+    const day = String(date.getDate()).padStart(2,'0')
+    const month = String(date.getMonth() +1).padStart(2, '0')
+    const year = date.getFullYear();
+
+
+    return `${day}-${month}-${year}`
+})
+// console.log(dateConversion)
+
+
+// masking email address
+const emails = ['tarang@gmail.com', 'sneha@yahoo.com'];
+
+const maskedEmails = emails.map(email=>{
+    const[ username, domain] = email.split('@')
+    const firstChar = username[0]
+
+    const maskedPart = '*'.repeat(username.length -1);
+    return `${firstChar}${maskedPart}@${domain}`
+})
+
+// console.log(maskedEmails) // [ 't*****@gmail.com', 's****@yahoo.com' ]
