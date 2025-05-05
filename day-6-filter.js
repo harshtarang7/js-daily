@@ -41,4 +41,19 @@ function checkJoiningDate(){
 function searchByNameNoCaseSensitivity(search){
     return EmployeesList.filter(emp=>emp.toLowerCase() === search.toLowerCase())
 }
-console.log(searchByNameNoCaseSensitivity('TARANG'))
+// console.log(searchByNameNoCaseSensitivity('TARANG'))
+
+
+// filter available rooms between a start and end date.
+const rooms = [
+  { roomNo: 102, available: true, freeOn: "2025-02-12" },
+  { roomNo: 201, available: true, freeOn: "2025-02-21" },
+  { roomNo: 320, available: false, freeOn: "2025-01-14" },
+  { roomNo: 123, available: true, freeOn: "2025-01-12" },
+];
+
+function isRoomAvailable(startDate,endDate){
+    return rooms.filter(room=>room.freeOn > startDate && room.freeOn<endDate)
+}
+
+// console.log(isRoomAvailable("2025-02-12","2025-02-22"))
