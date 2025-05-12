@@ -106,4 +106,41 @@ function checkOrdersPayment(paymentMode) {
     );
   });
 }
-console.log(checkOrdersPayment("Debit"));
+// console.log(checkOrdersPayment("Debit"));
+
+const users = [
+  { name: "tarang", dob: "2000-02-01", working: true },
+  { name: "harsh", dob: "1992-12-01", working: true },
+  { name: "jimmy", dob: "1992-11-01", working: true },
+  { name: "data", dob: "1999-10-01", working: false },
+  { name: "skype", dob: "1999-09-01", working: true },
+  { name: "join", dob: "1991-08-01", working: false },
+  { name: "now", dob: "1992-03-01", working: true },
+  { name: "or", dob: "2000-03-01", working: false },
+  { name: "tata", dob: "1998-05-01", working: false },
+  { name: "king", dob: "2001-01-01", working: true },
+  { name: "queen", dob: "2002-01-01", working: false },
+  { name: "kr$na", dob: "1992-12-01", working: true },
+];
+function pagination(page) {
+  const page = page;
+  const limit = 6;
+  const total = users.length;
+  const page = Math.min(Math.max(1, pageNumber), totalPages);
+  const offset = (page - 1) * limit;
+
+  const pageData = users.filter(
+    (_, index) => index >= offset && index < offset + limit
+  );
+  return{
+       data: pageData,
+        pagination: {
+            currentPage: page,
+            totalPages: totalPages,
+            totalItems: total,
+            itemsPerPage: limit,
+            hasNextPage: page < totalPages,
+            hasPrevPage: page > 1
+        }
+  }
+}
