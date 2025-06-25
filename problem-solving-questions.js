@@ -31,3 +31,23 @@ function reverseString (string){
     return newString
 }
 console.log(reverseString("hello"))
+
+// palindrome
+// madam/madam = true
+// hello/olleh = false
+
+function palin(string){
+    let fromLast =''
+
+    for(let j=string.length-1;j>=0;j--){
+        fromLast += string[j]
+    }
+    if(string !== fromLast){
+        return 'not palindrome'
+    }else{
+        return `palindrome`
+    }
+}
+
+console.log(palin("madam"))
+
