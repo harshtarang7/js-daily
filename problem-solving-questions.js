@@ -62,3 +62,107 @@ while(b!==0){
 }
 
 console.log(sum(2, 3)); // ➞ 5
+
+// is anagram
+function anagram(str1, str2){
+    if(str1.length !== str2.length) return false;
+
+    // lowwercase
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+
+    //counting letters
+    let count = {}
+    for(i=0;i<str1.length;i++){
+        let char = str1[i]
+        if(count[char]){
+            // if letter exist then we will increase the count
+            count[char]++;
+        }else{
+            //if it is first then set to 1
+            count[char] = 1
+        }
+    }
+
+    // with str2 
+    for(i=0;i<str2.length;i++){
+        let char =str2[i]
+        
+        if(!count[char]){
+            return false;
+        }
+        count[char]--
+    }
+
+    //checking values are 0
+    for(let key in count){
+        if(count[key] !== 0)return false;
+    }
+    return true
+}
+
+console.log(anagram('harsh','srhah'))
+
+
+// group anagram check
+
+function isGroupAnagram(arr){
+    let groups = {}
+
+    for(let i=0;i<arr.length;i++){
+        let word = arr[i]
+        let letterCount = {}
+
+        // counting each letter in the word
+        for(let j=0;j<word.length;j++){
+            let char = word[j]
+            if(letterCount[char]){
+                letterCount[char] ++
+            }    else{
+                letterCount[char] =1
+            }
+        }
+
+        let key =''
+        // using ASCII 'a' to 'z'
+        for(let c=97;c<=122;c++){
+            let char = String.fromCharCode(c);
+            if(letterCount[char]){
+                key += char + letterCount[char]
+            }
+        }
+
+        // if the key is same then group the similar words 
+        if(groups[key]){
+            groups[key].push(word)
+        }else{
+            groups[key] = [word]
+            
+        }
+    }
+
+    //converting obj into array
+    let result =[]
+    for(let group in groups){
+        result.push(groups[group])
+    }
+
+    return result
+}
+
+console.log(isGroupAnagram(['sar','ras','harsh','sarha']))
+
+
+function isMax(arr){
+    if(arr.length < 2 )return false;
+    let isMaxNumber = 0;
+
+    for(let i=0;i<arr.length;i++){
+        if(isMaxNumber<arr[i]){
+            isMaxNumber = arr[i]
+        }
+    }
+    return isMaxNumber
+}
+
+console.log(isMax([1,29,3,499,59,78,2,8,9]))
