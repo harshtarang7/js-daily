@@ -166,3 +166,23 @@ function isMax(arr){
 }
 
 console.log(isMax([1,29,3,499,59,78,2,8,9]))
+
+
+// counting vowels
+function isVowel(str){
+    const vowels= ['a','e','i','o','u']
+    let vowelCount = 0
+    for(let i=0;i<str.length;i++){
+        let char = str[i].toLowerCase()
+
+       for(let j=0; j<vowels.length;j++){
+           if(char === vowels[j]){
+            vowelCount++
+           }
+        }
+    }
+     
+    return vowelCount 
+}
+
+console.log(isVowel('harish'))
