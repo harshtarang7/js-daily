@@ -186,3 +186,14 @@ function isVowel(str){
 }
 
 console.log(isVowel('harish'))
+
+
+function isFactorial(input){
+    let f=1
+    for(let i=1;i<=input;i++){
+        f=f*i
+    }
+    return `fact: ${f}`
+}
+
+console.log(isFactorial(3))
