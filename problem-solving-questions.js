@@ -197,3 +197,22 @@ function isFactorial(input){
 }
 
 console.log(isFactorial(3))
+
+
+function isLeapYear(year){
+  if(year %4===0){
+    return 'leap'
+  }else{
+    return 'not leap'
+  }
+}
+console.log(isLeapYear(2024))
+
+function reverseArray(arr){
+    const newArr = [];
+    for(let i=arr.length-1;i>=0;i--){
+        newArr.push(arr[i])
+    }
+    return newArr
+}
+console.log(reverseArray([1,2,3,4,59,7,8,9,10]))
