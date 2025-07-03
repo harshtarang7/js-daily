@@ -225,4 +225,11 @@ function fizzBuzz() {
      
   }
 }
-fizzBuzz();
+// fizzBuzz();
+
+// converting first letter into caps
+function toUpperCase(str){
+    return str.slice(0,1).toUpperCase() + str.slice(1).toLowerCase();
+}
+console.log(toUpperCase('harsh'))
+
