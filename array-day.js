@@ -12,3 +12,9 @@ const reverseArray = (arr) => {
   return [arr.pop(), ...reverseArray(arr)];
 };
 console.log(reverseArray([1, 2, 3, 4, 5]));
+
+//capital letter in first
+const firstCapital = (arr) => {
+  return arr.map((item) => item.slice(0, 1).toUpperCase() + item.slice(1));
+};
+console.log(firstCapital(["tarang", "harsh"]));
