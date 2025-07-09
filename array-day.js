@@ -27,3 +27,8 @@ function cleanFalsyValues(arr) {
 console.log(
   cleanFalsyValues(["tarang", "", false, 32, null, "harsh", undefined])
 );
+
+function uniqueElements(arr) {
+  return [...new Set(arr)];
+}
+console.log(uniqueElements([1, 1, 2, 3, 44, 45, 656, 54, 45, 54, 54]));
