@@ -18,3 +18,12 @@ const firstCapital = (arr) => {
   return arr.map((item) => item.slice(0, 1).toUpperCase() + item.slice(1));
 };
 console.log(firstCapital(["tarang", "harsh"]));
+
+// removing falsy values
+function cleanFalsyValues(arr) {
+  return arr.filter(Boolean);
+}
+
+console.log(
+  cleanFalsyValues(["tarang", "", false, 32, null, "harsh", undefined])
+);
