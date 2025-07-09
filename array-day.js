@@ -1,0 +1,14 @@
+// array 1
+// doubles
+const doubles = (arr) => {
+  return arr.map((item) => item * 2);
+};
+console.log(doubles([1, 2, 3, 4, 5]));
+
+// reverse array without for,map,for each
+
+const reverseArray = (arr) => {
+  if (arr.length === 0) return [];
+  return [arr.pop(), ...reverseArray(arr)];
+};
+console.log(reverseArray([1, 2, 3, 4, 5]));
