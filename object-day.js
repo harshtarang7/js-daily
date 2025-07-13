@@ -48,3 +48,17 @@ console.log(deepCopy.dog.age) //6
 // in older js we use this 
 // const deepCopy = JSON.parse(JSON.stringify(original))
 
+// structured clone is use to deep copy the object with structured clone algorithm in JS 
+
+// another example 
+const mushrooms1 ={
+    anna : ["muscaria", "virosa"]
+}
+
+const mushrooms2 = structuredClone(mushrooms1);
+
+mushrooms2.anna.push("pantherina");
+mushrooms1.anna.pop();
+
+console.log(mushrooms1) //{ anna: [ 'muscaria' ] }
+console.log(mushrooms2) //{ anna: [ 'muscaria', 'virosa', 'pantherina' ] }
