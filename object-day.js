@@ -96,3 +96,14 @@ obj.age = 23; // wil ignore
 delete obj.name;
 
 console.log(obj)
+
+
+// preventExtension
+// object.preventExtension will make sure we cannot add  new properties to an object
+// but still allows delete and changing values 
+
+// Seal
+// it will stop adding and deleting properties but it will allow changing the values
+
+// freeze
+// it will fully lock the object we cannot add, modify, udpate, delete anything 
