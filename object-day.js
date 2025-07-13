@@ -107,3 +107,48 @@ console.log(obj)
 
 // freeze
 // it will fully lock the object we cannot add, modify, udpate, delete anything 
+
+// custom clone without inbuilt library
+
+function deepClone(obj){
+    if(obj === null || typeof obj !== 'object') return obj;
+
+    // handling date
+    if(obj instanceof Date) return new Date(obj);
+
+    // handle array
+    if(Array.isArray(obj)){
+        return obj.map(item=>deepClone(item));
+    }
+
+    // handling object
+    const clone = {};
+    for(const key in obj){
+        if(obj.hasOwnProperty(key)){
+            clone[key] = deepClone(obj[key]);
+        }
+    }
+
+    return clone 
+}
+
+// using custom clone in our function 
+
+const objOriginal = {
+    name:'tarang',
+    tags:["js","react"],
+    meta:{
+        joined:new Date("2020-01-01"),
+        likes:5000
+    }
+};
+
+const clonedObject = deepClone(objOriginal)
+clonedObject.tags.push("GIGA-CHAD-DEV") 
+clonedObject.meta.likes = 999
+
+
+console.log(objOriginal.tags) //[ 'js', 'react' ]
+console.log(clonedObject.tags) // [ 'js', 'react', 'GIGA-CHAD-DEV' ]
+console.log(objOriginal.meta.likes) // 5000
+console.log(clonedObject.meta.likes) // 999
