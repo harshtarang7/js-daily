@@ -62,3 +62,37 @@ mushrooms1.anna.pop();
 
 console.log(mushrooms1) //{ anna: [ 'muscaria' ] }
 console.log(mushrooms2) //{ anna: [ 'muscaria', 'virosa', 'pantherina' ] }
+
+
+// How can you prevent an object from being modified (properties added/removed/changed)?
+
+const obj = {name:"tarangHarsh"};
+Object.preventExtensions(obj);
+
+// it will stop adding new property
+obj.age = 24;
+// it will allow modification
+obj.name = 'TOPDAWG'
+console.log(obj);
+
+// seal
+
+// seal it will stop adding and deleting properties
+Object.seal(obj);
+
+obj.name = 'T-man'; // it will work 
+delete obj.name; // won't work
+obj.age = 23 //won't work
+
+console.log(obj);
+
+//freeze : it will fully freeze the object
+
+
+
+Object.freeze(obj) // will ignore 
+obj.name = 'bigT'; //  will ignore 
+obj.age = 23; // wil ignore 
+delete obj.name;
+
+console.log(obj)
