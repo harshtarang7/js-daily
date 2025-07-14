@@ -152,3 +152,32 @@ console.log(objOriginal.tags) //[ 'js', 'react' ]
 console.log(clonedObject.tags) // [ 'js', 'react', 'GIGA-CHAD-DEV' ]
 console.log(objOriginal.meta.likes) // 5000
 console.log(clonedObject.meta.likes) // 999
+
+
+
+// 
+const a = {foo:"bar"};
+const b = a;
+// b.foo = "bax"
+
+// it will show bax because we just gave reference to b of same object not cloning
+console.log(a.foo) // bax
+
+const shallowdata = {...a}
+shallowdata.foo = 'bax'
+console.log(a.foo) //bar - a is untouched
+console.log(shallowdata.foo) // bax
+
+
+// Can you loop over an object with for...of? If not, how would you iterate over key-value pairs in an object?
+// for of won't work with object as they are iterable by default 
+
+// to loop over key value
+const objNew={
+    name:'tarang',
+    skill:'fullstack',
+}
+
+for(const [key,value] of Object.entries(objNew)){
+    console.log(`${key}: ${value}`)
+}
