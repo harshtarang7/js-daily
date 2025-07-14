@@ -181,3 +181,26 @@ const objNew={
 for(const [key,value] of Object.entries(objNew)){
     console.log(`${key}: ${value}`)
 }
+
+// 
+const numObj = {a:1,b:2,a:3}
+console.log(numObj) // 3
+
+// destructuring :it allows us to unpack from an object into individual variables
+
+const newUser = {
+    name:'harsh',
+    age:23,
+    city:'Jodhpur'
+}
+
+const {name,city} = newUser;
+
+console.log(name) //tarang
+console.log(city) //Jodhpur
+
+// alias in destructuring
+
+const {age:userAge} = newUser;
+
+console.log(userAge) // 23
