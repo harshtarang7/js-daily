@@ -219,3 +219,36 @@ return user;
 
 console.log(buildUser('name','tarang','city','jodhpur')) //{ name: 'tarang', city: 'jodhpur' }
 console.log(buildUser('name','baba','age',25)) //{ name: 'baba', age: 25 }
+
+
+// prototype chain
+
+// Imaging every JS object has a secret link to another object, it is prototype
+// and that prototype might have link to another one and so on like a chain. it is PROTOTYPE CHAIN
+
+// eg-
+const person = {
+    name(val){
+        return `I am ${val}`;
+    }
+};
+
+const tarang = Object.create(person);
+const krishna = Object.create(person);
+
+// it will show the name function in the prototype which is chained with the person object
+console.log(Object.getPrototypeOf(tarang)); // { name: [Function: name] }
+
+
+console.log(tarang.name('tarang')); // 'tarang'
+console.log(krishna.name('KRISHNA')); // 'KRISHNA'
+
+
+// another example of chain
+const grandParent = {lastName : 'sharma'}
+const parent = Object.create(grandParent)
+const child = Object.create(parent)
+
+console.log(child.lastName) // sharma - found in grandparent
+
+// the js will look child -> parent -> grandparent -> FOUND 
