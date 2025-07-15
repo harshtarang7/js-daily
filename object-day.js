@@ -251,4 +251,19 @@ const child = Object.create(parent)
 
 console.log(child.lastName) // sharma - found in grandparent
 
-// the js will look child -> parent -> grandparent -> FOUND 
+// the js will look child -> parent -> grandparent -> FOUND
+
+
+//custom utility objects
+
+const validatorEmail = {
+    isEmail(str){
+        return /\S+@\S+\.\S+/.test(str);
+    }
+};
+
+const formValidator = Object.create(validatorEmail)
+
+console.log(
+formValidator.isEmail('tarang@gmail.com') //true
+)
