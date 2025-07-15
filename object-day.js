@@ -204,3 +204,18 @@ console.log(city) //Jodhpur
 const {age:userAge} = newUser;
 
 console.log(userAge) // 23
+
+
+
+// How do computed property names work in object literals?
+// it allows us to dynamically use a variable or expression as the property name in an object literal using square brackets [].
+const buildUser=(key1,value1,key2,value2)=>{
+    let user ={
+        [key1]:value1,
+        [key2]:value2
+    }
+return user;
+}
+
+console.log(buildUser('name','tarang','city','jodhpur')) //{ name: 'tarang', city: 'jodhpur' }
+console.log(buildUser('name','baba','age',25)) //{ name: 'baba', age: 25 }
