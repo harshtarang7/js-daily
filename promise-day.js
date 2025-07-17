@@ -1,4 +1,5 @@
 // .then => resolve
+// promise has three state, resolve, rejected, pending
 const promiseOne = new Promise(function (resolve, reject) {
   setTimeout(function () {
     console.log("ASYNC TASK IS COMPLETED");
@@ -30,3 +31,29 @@ const promiseThree = new Promise(function (resolve, reject) {
 promiseThree.then(function (user) {
   console.log(user);
 });
+
+// using reject
+// avoiding call back hell
+const promiseFour = new Promise(function (resolve, reject) {
+  setTimeout(function() {
+    let error = false;
+    if (!error) {
+      resolve({ userName: "tarang", password: "123" });
+    } else {
+      reject("ERROR Something went wrong");
+    }
+  }, 2000);
+});
+
+promiseFour
+.then((user) => {
+    console.log(user);
+    return user.userName;
+})
+.then((name)=>{
+    console.log(name);
+})
+.catch(function(error){
+    console.log(error);
+}).finally(()=>console.log('the promise is either resolved or rejected')
+)
