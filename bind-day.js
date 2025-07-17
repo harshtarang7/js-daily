@@ -18,3 +18,33 @@ newObj();
 
 const newOB = person.cityName.bind(person);
 newOB() // jodhpur
+
+
+// counter
+function Counter(){
+    this.count = 0
+
+    setTimeout(function(){
+        this.count++;
+        console.log(this.count);
+    }.bind(this),1000)
+}
+
+const c = new Counter()
+console.log(c)
+
+
+function sayHi() {
+  console.log(this.name);
+}
+
+const user = { name: "Tarang" };
+const admin = { name: "Admin" };
+
+const hiUser = sayHi.bind(user);
+const hiAdmin = hiUser.bind(admin);
+
+hiAdmin();
+
+
+// call will hold the reference 
