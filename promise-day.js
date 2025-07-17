@@ -35,7 +35,7 @@ promiseThree.then(function (user) {
 // using reject
 // avoiding call back hell
 const promiseFour = new Promise(function (resolve, reject) {
-  setTimeout(function() {
+  setTimeout(function () {
     let error = false;
     if (!error) {
       resolve({ userName: "tarang", password: "123" });
@@ -46,14 +46,37 @@ const promiseFour = new Promise(function (resolve, reject) {
 });
 
 promiseFour
-.then((user) => {
+  .then((user) => {
     console.log(user);
     return user.userName;
-})
-.then((name)=>{
+  })
+  .then((name) => {
     console.log(name);
-})
-.catch(function(error){
+  })
+  .catch(function (error) {
     console.log(error);
-}).finally(()=>console.log('the promise is either resolved or rejected')
-)
+  })
+  .finally(() => console.log("the promise is either resolved or rejected"));
+
+// using async await
+
+const promiseFive = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    let error = true;
+    if (!error) {
+      resolve({ userName: "harsh", password: "233" });
+    } else {
+      reject("ERROR Something went wrong");
+    }
+  }, 2000);
+});
+
+async function consumePromiseFive() {
+  try {
+    const response = await promiseFive;
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+consumePromiseFive();
