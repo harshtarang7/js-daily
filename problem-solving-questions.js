@@ -233,3 +233,29 @@ function toUpperCase(str){
 }
 console.log(toUpperCase('harsh'))
 
+
+// fibbonaci series
+// input = 5 , O/P -> [0,1,1,2,3]
+
+// each number is the sum of the two numbers before it 
+// first term = 0
+// secon term = 1
+// third will be -> 0+1 = 1
+// fourth will be -> 1+1 = 2
+// fifth will be -> 1+2 = 3
+
+function fibbonaci(num){
+  let n1 = 0
+  let n2 = 1;
+  let series = [];
+
+  for(let i=0; i<num; i++){
+    series.push(n1)
+    let nextTerm = n1 + n2
+    n1 = n2
+    n2 = nextTerm
+  }
+  return series
+}
+
+console.log(fibbonaci(4))
