@@ -257,5 +257,19 @@ function fibbonaci(num){
   }
   return series
 }
-
 console.log(fibbonaci(4))
+
+
+// removing duplicates 
+function removeDuplicates(numArr){
+  let empty = []
+  for(let i=0;i<numArr.length;i++){
+    if(!empty.includes(numArr[i])){
+      empty.push(numArr[i])
+    }
+  }
+  return empty
+}
+
+console.log(removeDuplicates([1,2,3,4,5,6,7,7,7,8,8]));
+console.log(removeDuplicates([1,1,1,1,1]));
