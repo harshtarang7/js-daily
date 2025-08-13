@@ -80,3 +80,52 @@ async function consumePromiseFive() {
   }
 }
 consumePromiseFive();
+
+// custom promise.all
+function myPromiseAll(promises) {
+  return new Promise((resolve, reject) => {
+    const results = [];
+    let completed = 0;
+    
+
+    if (promises.length === 0) {
+      resolve([]);
+      return;
+    }
+
+    promises.forEach((promise, index) => {
+      Promise.resolve(promise)
+        .then(value => {
+          results[index] = value;
+          completed++;
+
+          if (completed === promises.length) {
+            resolve(results);
+          }
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  });
+}
+
+const promises = [
+  Promise.resolve("first"),
+  Promise.resolve("second"),
+  Promise.resolve("third")
+];
+
+myPromiseAll(promises)
+.then(result=>console.log("success",result))
+.catch(error=>console.log("Error",error));
+
+const promisesWithError = [
+  Promise.resolve("first"),
+  Promise.reject("Something failed!"),
+  Promise.resolve("third")
+];
+
+myPromiseAll(promisesWithError)
+  .then(result => console.log("success: " , result))
+  .catch(error => console.log("Error caught: " , error));

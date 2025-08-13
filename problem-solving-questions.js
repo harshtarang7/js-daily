@@ -211,65 +211,84 @@ console.log(reverseArray([1, 2, 3, 4, 5]));
 
 // fizzbuzzz
 function fizzBuzz() {
-  for (i = 1; i <=100; i++) {
-    if(i%5===0 && i%3 === 0){
-    console.log(i + 'fizzBuzz');
+  for (i = 1; i <= 100; i++) {
+    if (i % 5 === 0 && i % 3 === 0) {
+      console.log(i + "fizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log(i + "fizz");
+    } else if (i % 5 === 0) {
+      console.log(i + "buzz");
+    } else {
+      console.log(i);
     }
-    else if (i % 3 === 0) {
-    console.log(i + 'fizz');
-    }else if(i%5===0){
-    console.log(i + 'buzz');
-    }else{
-        console.log(i)
-    }
-     
   }
 }
 // fizzBuzz();
 
 // converting first letter into caps
-function toUpperCase(str){
-    return str.slice(0,1).toUpperCase() + str.slice(1).toLowerCase();
+function toUpperCase(str) {
+  return str.slice(0, 1).toUpperCase() + str.slice(1).toLowerCase();
 }
-console.log(toUpperCase('harsh'))
-
+console.log(toUpperCase("harsh"));
 
 // fibbonaci series
 // input = 5 , O/P -> [0,1,1,2,3]
 
-// each number is the sum of the two numbers before it 
+// each number is the sum of the two numbers before it
 // first term = 0
 // secon term = 1
 // third will be -> 0+1 = 1
 // fourth will be -> 1+1 = 2
 // fifth will be -> 1+2 = 3
 
-function fibbonaci(num){
-  let n1 = 0
+function fibbonaci(num) {
+  let n1 = 0;
   let n2 = 1;
   let series = [];
 
-  for(let i=0; i<num; i++){
-    series.push(n1)
-    let nextTerm = n1 + n2
-    n1 = n2
-    n2 = nextTerm
+  for (let i = 0; i < num; i++) {
+    series.push(n1);
+    let nextTerm = n1 + n2;
+    n1 = n2;
+    n2 = nextTerm;
   }
-  return series
+  return series;
 }
-console.log(fibbonaci(4))
+console.log(fibbonaci(4));
 
-
-// removing duplicates 
-function removeDuplicates(numArr){
-  let empty = []
-  for(let i=0;i<numArr.length;i++){
-    if(!empty.includes(numArr[i])){
-      empty.push(numArr[i])
+// removing duplicates
+function removeDuplicates(numArr) {
+  let empty = [];
+  for (let i = 0; i < numArr.length; i++) {
+    if (!empty.includes(numArr[i])) {
+      empty.push(numArr[i]);
     }
   }
-  return empty
+  return empty;
 }
 
-console.log(removeDuplicates([1,2,3,4,5,6,7,7,7,8,8]));
-console.log(removeDuplicates([1,1,1,1,1]));
+console.log(removeDuplicates([1, 2, 3, 4, 5, 6, 7, 7, 7, 8, 8]));
+console.log(removeDuplicates([1, 1, 1, 1, 1]));
+
+// staircase steps
+// using recursion
+function ClimbSteps(num) {
+  if (num <= 2) return num;
+  return ClimbSteps(num - 1) + ClimbSteps(num - 2);
+}
+
+console.log(ClimbSteps(5)); //8 ways
+console.log(ClimbSteps(9)); // 55 ways
+
+
+
+// area of rectangle
+let L = 5;
+let H = 7;
+
+console.log(L*H)
+
+// permeter of rectangle 
+
+let peri = 2 * (L + H)
+console.log(peri)
