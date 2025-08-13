@@ -86,7 +86,6 @@ function myPromiseAll(promises) {
   return new Promise((resolve, reject) => {
     const results = [];
     let completed = 0;
-    
 
     if (promises.length === 0) {
       resolve([]);
@@ -95,7 +94,7 @@ function myPromiseAll(promises) {
 
     promises.forEach((promise, index) => {
       Promise.resolve(promise)
-        .then(value => {
+        .then((value) => {
           results[index] = value;
           completed++;
 
@@ -103,7 +102,7 @@ function myPromiseAll(promises) {
             resolve(results);
           }
         })
-        .catch(error => {
+        .catch((error) => {
           reject(error);
         });
     });
@@ -113,19 +112,59 @@ function myPromiseAll(promises) {
 const promises = [
   Promise.resolve("first"),
   Promise.resolve("second"),
-  Promise.resolve("third")
+  Promise.resolve("third"),
 ];
 
 myPromiseAll(promises)
-.then(result=>console.log("success",result))
-.catch(error=>console.log("Error",error));
+  .then((result) => console.log("success", result))
+  .catch((error) => console.log("Error", error));
 
 const promisesWithError = [
   Promise.resolve("first"),
   Promise.reject("Something failed!"),
-  Promise.resolve("third")
+  Promise.resolve("third"),
 ];
 
 myPromiseAll(promisesWithError)
-  .then(result => console.log("success: " , result))
-  .catch(error => console.log("Error caught: " , error));
+  .then((result) => console.log("success: ", result))
+  .catch((error) => console.log("Error caught: ", error));
+
+// basic promise question
+const basicPromise1 = new Promise((resolve, reject) => {
+  try {
+    setTimeout(() => {
+      resolve("hello tarang");
+    }, 2000);
+  } catch (error) {
+    reject(error);
+  }
+});
+
+basicPromise1
+  .then((result) => console.log("success Basic promise 1", result))
+  .catch((error) => console.log("error Basic promise 1", error));
+
+
+  // handling rejection with catch
+const basicPromise2 = new Promise((resolve,reject)=>{
+  setTimeout(() => {
+    
+    reject("Something Went Wrong")
+  }, 3000);
+});
+
+
+basicPromise2
+  .then((result) => console.log("success Basic promise 2", result))
+  .catch((error) => console.log("error Basic promise 2", error));
+
+// delay(ms) function htat returns a promise
+
+function delay(ms){
+  return new Promise(resolve=>{
+    setTimeout(resolve,ms)
+  });
+}
+
+delay(4000).then(result=>console.log('promise resolved')
+)
