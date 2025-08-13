@@ -1,4 +1,7 @@
 // .then => resolve
+
+const { default: chalk } = require("chalk");
+
 // promise has three state, resolve, rejected, pending
 const promiseOne = new Promise(function (resolve, reject) {
   setTimeout(function () {
@@ -168,3 +171,10 @@ function delay(ms){
 
 delay(4000).then(result=>console.log('promise resolved')
 )
+
+// chaining two then and getting result from first then 
+basicPromise1
+.then((result)=>{
+  // console.log(chalk.blue(result))
+  return result.toUpperCase();
+}).then(resultFinal=>console.warn(chalk.greenBright('final result from the first :'), chalk.red(resultFinal)))
